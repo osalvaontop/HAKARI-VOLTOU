@@ -171,46 +171,44 @@ class StaffPromotion(commands.Cog):
 
         self.promotion_chains = {
         # 1. Staff -> Moderador
-        1502742411401756753: {
-            "next_role": 1501751161278169108,
+        1490679537032495301: {
+            "next_role": 1519102905112858757,
             "points_needed": 100,
             "role_name": "staff"
         },
 
         # 2. Moderador -> Admin
-        1501751161278169108: {
-            "next_role": 1501711824079425647,
+        1519102905112858757: {
+            "next_role": 1490679537032495298,
             "points_needed": 200,
             "role_name": "moderador"
         },
 
         # 3. Admin -> Gerente
-        1501711824079425647: {
-            "next_role": 1506412431780610058,
+        1490679537032495298: {
+            "next_role": 1518394774414037042,
             "points_needed": 300,
             "role_name": "admin"
         },
 
         # 4. Gerente -> Sub Owner
-        1506412431780610058: {
-            "next_role": 1505222907821822123,
+        1518394774414037042: {
+            "next_role": 1490679537032495303,
             "points_needed": 600,
-            "role_name": "manager"
+            "role_name": "CEO"
         },
-
-        # 5. Sub Owner -> Owner
-        1505222907821822123: {
-            "next_role": 1505222967208968292,
-            "points_needed": 900,
+        # 6. Owner -> cargo final
+        1490679537032495303: {
+            "next_role": 1496282936331337789,
+            "points_needed": 800,
             "role_name": "sub owner"
         },
-
-        # 6. Owner -> cargo final
-        1505222967208968292: {
+        # 7. sub owner > cargo final
+        1496282936331337789: {
             "next_role": None,
             "points_needed": None,
-             "role_name": "owner",
-             "is_final": True
+            "role_name": "sub owner",
+            "is_final": True
       }
 
 }
