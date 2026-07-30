@@ -146,7 +146,7 @@ class StaffPromotionDatabase:
                 new_points = await connection.fetchval(
                     """
                     UPDATE staff_promotion
-                    SET points = points + $1, last_updated = $2
+                    SET points = GREATEST(0, points + $1), last_updated = $2
                     WHERE user_id = $3
                     RETURNING points
                     """,
@@ -156,7 +156,6 @@ class StaffPromotionDatabase:
                 )
 
                 return int(new_points) if new_points is not None else 0
-
 
 # ============================================================
 # cog
@@ -174,45 +173,45 @@ class StaffPromotion(commands.Cog):
         1490679537032495301: {
             "next_role": 1519102905112858757,
             "points_needed": 100,
-            "role_name": "staff"
+            "role_name": "Staff"
         },
 
         # 2. Moderador -> Admin
         1519102905112858757: {
             "next_role": 1490679537032495298,
             "points_needed": 200,
-            "role_name": "moderador"
+            "role_name": "Moderador"
         },
 
         # 3. Admin -> Gerente
         1490679537032495298: {
             "next_role": 1518394774414037042,
             "points_needed": 300,
-            "role_name": "admin"
+            "role_name": "Admin"
         },
 
         # 4. Gerente -> Sub Owner
         1518394774414037042: {
             "next_role": 1490679537032495303,
             "points_needed": 600,
-            "role_name": "CEO"
+            "role_name": "Gerente"
         },
-        # 6. Owner -> cargo final
+
+        # 5. Sub Owner -> Owner
         1490679537032495303: {
             "next_role": 1496282936331337789,
             "points_needed": 800,
-            "role_name": "sub owner"
+            "role_name": "Sub Owner"
         },
-        # 7. sub owner > cargo final
+
+        # 6. Cargo Final (Owner / CEO)
         1496282936331337789: {
             "next_role": None,
             "points_needed": None,
-            "role_name": "sub owner",
+            "role_name": "Sub Owner",
             "is_final": True
-      }
-
+    }
 }
-
     async def cog_load(self) -> None:
         await self.database.initialize()
 
