@@ -9,22 +9,16 @@ cooldowns = {}
 bloquear_tomates = False
 bot_owner_id_cache = None
 
-
-STAFF_ROLES = {
-    1504998108407398501
-}
-
 TARGET_PICK_ROLES = {
-    1524830563003793429,
-    1502738752106270831
+    1532940119831482369
 }
 
 REDUCED_COOLDOWN_ROLES = {
     *TARGET_PICK_ROLES
 }
 
-DEFAULT_COOLDOWN = 15 * 60
-REDUCED_COOLDOWN = 10 * 60
+DEFAULT_COOLDOWN = 7
+REDUCED_COOLDOWN = 5
 
 
 def has_role(member: discord.Member, roles: set[int]):
@@ -83,7 +77,7 @@ async def tomate_core(
                 seconds = int(remaining % 60)
 
                 await send(
-                    f"⏳ cooldown ativo. espere **{minutes}**m **{seconds}**s"
+                    f"⏳ você está jogando tomates demais em pouco tempo! tente novamente em **{seconds}** segundos. sabia que boosters podem jogar tomates a cada 5 segundos?"
                 )
                 return
 
@@ -91,7 +85,7 @@ async def tomate_core(
 
     if target_user is not None:
         if not can_pick_target(author):
-            await send("tu não tem cargo pra escolher alvo do tomate 😭")
+            await send("tu precisa do cargo de boosters pra escolher um alvo 😭")
             return
 
         messages = [
@@ -126,7 +120,7 @@ async def tomate_core(
             await selected_msg.add_reaction("🍅")
 
             await send(
-                "taquei tomate em um dos staffs do servidor, fudeu"
+                "oi"
             )
         except discord.Forbidden:
             await send("não tenho permissão pra reagir mensagens pô")
@@ -136,25 +130,25 @@ async def tomate_core(
 
     if chance <= 35:
         await send(
-            f"**RARO**(**CHANCE: 35%**): {target.mention} desviou do tomate"
+            f"**RARO**(**CHANCE: 35%**){target.mention} desviou do tomate!"
         )
         return
 
     elif chance <= 45:
         await send(
-            f"**SUPER RARO**(**CHANCE: 10%**): {target.mention} deu parry e jogou de volta em {author.mention}"
+            f"**SUPER RARO**(**CHANCE: 10%**): {target.mention} deu parry e jogou de volta em {author.mention}!"
         )
         return
 
     elif chance <= 50:
         await send(
-            f"**ULTRA RARO**(**CHANCE: 5%**): {target.mention} puxou uma KATANA e cortou o tomate AO MEIO no AR."
+            f"**ULTRA RARO**(**CHANCE: 5%**): {target.mention} ativou o **Infinito** de **Gojou Satoru** e o tomate congelou no ar perto de {target.mention}."
         )
         return
 
     elif chance <= 75:
         await send(
-            "errei o tomate kkkkkkkkkkkkkkkkkkkkj depois eu tento de novo"
+            "errei o tomate kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkj"
         )
         return
 
@@ -172,7 +166,7 @@ async def tomate_core(
                 )
 
         except discord.Forbidden:
-            await send("não tenho permissão pra reagir mensagens caralho")
+            await send("CADE MINHA PERMISSÃO DE REAGIR AS MENSAGENS PORRAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
 
         except Exception as e:
             await send(f"erro ao lançar tomate: `{e}`")
