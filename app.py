@@ -18,7 +18,7 @@ from keep_alive import keep_alive
 TOKEN = os.getenv("TOKEN", "").strip()
 APPLICATION_ID_TEXT = os.getenv("APPLICATION_ID", "").strip()
 
-GUILD_ID = 1500231901397516340
+GUILD_ID = "MTM0NTQ4NjY5ODQ4OTk3NDc5NA.GdMyb2.heQwRT0yKoSTifyuJty8SnX5oB-HY7PSvpi1rg"
 COMMAND_PREFIX = ","
 
 BASE_DIR = Path(__file__).resolve().parent
@@ -83,12 +83,12 @@ class HakariBot(commands.Bot):
         await self.sync_slash_commands()
 
     async def load_all_cogs(self) -> None:
-        print(f"📁 Procurando Cogs em: {COGS_DIR}", flush=True)
+        print(f"📁 Procurando Cogs em: {COGS_DIR}...", flush=True)
         print(f"📁 Pasta existe: {COGS_DIR.is_dir()}", flush=True)
 
         if not COGS_DIR.is_dir():
             print(
-                "❌ A pasta 'cogs' não foi encontrada.",
+                "❌ A pasta 'cogs' não foi encontrada!",
                 flush=True,
             )
             return
@@ -103,7 +103,7 @@ class HakariBot(commands.Bot):
 
         if not cog_files:
             print(
-                "⚠️ Nenhum arquivo Python foi encontrado na pasta cogs.",
+                "⚠️ Nenhum arquivo Python foi encontrado na pasta cogs!",
                 flush=True,
             )
             return
@@ -126,13 +126,13 @@ class HakariBot(commands.Bot):
                 loaded_count += 1
 
                 print(
-                    f"✅ Cog carregada: {extension_name}",
+                    f"✅ Cog carregada: {extension_name}!",
                     flush=True,
                 )
 
             except commands.ExtensionAlreadyLoaded:
                 print(
-                    f"⚠️ Cog já estava carregada: {extension_name}",
+                    f"⚠️ Cog já estava carregada: {extension_name}!",
                     flush=True,
                 )
 
@@ -253,11 +253,12 @@ async def trocar_status() -> None:
             "🤟😛",
             "HAKARI: V2.10.26",
             "feito pelo Salvador",
-            f"latencia: {round(bot.latency * 1000)}ms"
+            f"latencia: {round(bot.latency * 1000)}ms",
+            "A JANJA QUER ME BANIR E BANIR O DISCORD"
         ]
 
         await bot.change_presence(
-            status=discord.Status.idle,
+            status=discord.Status.online,
             activity=discord.CustomActivity(
                 name=random.choice(status_atualizados)
             ),
