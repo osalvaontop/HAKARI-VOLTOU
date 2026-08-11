@@ -294,10 +294,10 @@ def home():
   <div class="page">
     <section class="top">
       <div class="hero">
-        <div class="eyebrow">HAKARI BOT feito pelo Mattzadas | Sempre online para entreter o seu servidor. </div>
+        <div class="eyebrow">HAKARI BOT feito pelo salvador | Sempre online para entreter o seu servidor. </div>
         <h1>HAKARI</h1>
         <p class="desc">
-          O HAKARI é um bot do Discord criado pelo Matt em Python, com foco em moderação, utilidades, automação e entretenimento. Conhecido por ser o famoso bot do comando /tomate.
+          O HAKARI é um bot do Discord criado pelo salva em Python, com foco em moderação, utilidades, automação e entretenimento. Conhecido por ser o famoso bot do comando /tomate.
         </p>
 
         <div class="features">
@@ -313,7 +313,7 @@ def home():
 
           <div class="feature">
             <strong>Desenvolvedor</strong>
-            <p>Matt é um garoto de 15 anos, obcecado por criar bots igual ao HAKARI. Sempre inteligente pra criar novas funcionalidades e paciente caso o erro 429(Rate Limit) venha novamente.</p>
+            <p>salva é um garoto de 15 anos, obcecado por criar bots igual ao HAKARI. Sempre inteligente pra criar novas funcionalidades e paciente caso o erro 429(Rate Limit) venha novamente.</p>
           </div>
         </div>
       </div>
@@ -381,7 +381,7 @@ def home():
       </section>
 
       <footer class="footer">
-        Página de Status do Hakari • Um bot feito pelo Matt
+        Página de Status do Hakari • Um bot feito pelo salva
       </footer>
     </main>
   </div>
